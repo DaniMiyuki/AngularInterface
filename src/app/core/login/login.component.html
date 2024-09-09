@@ -1,0 +1,113 @@
+<main class="flex flex-col md:flex-row text-gray-400 bg-gray-900 body-font items-center px-4 py-4 h-full">
+  <section class="w-full md:w-1/2 px-4 md:px-8 flex items-center justify-center">
+      <div class="w-full max-w-md">
+          @if (IsLoginView) {
+          <form>
+              <div class="flex flex-col items-center">
+                  <div class="text-center mb-5">
+                      <h1 class="title-font font-medium text-3xl md:text-4xl bg-gradient-to-tr from-teal-400 to-orange-400 bg-clip-text text-fill-transparent">Bem Vindo ao Seu Monitor de Saúde</h1>
+                      <p class="leading-relaxed mt-4">Entre para acessar seu diagnóstico online.</p>
+                  </div>
+                  <div class="bg-gray-800 bg-opacity-50 rounded-lg p-8 flex flex-col w-full">
+                      <h2 class="text-orange-300 text-lg font-medium title-font mb-5">LOGIN</h2>
+                      <div class="relative mb-4">
+                          <label for="name" class="leading-7 text-sm text-gray-400">Usuário</label>
+                          <input type="name" id="name" [(ngModel)]="loginObj.userName" name="name" required class="w-full bg-gray-600 bg-opacity-20 focus:bg-transparent focus:ring-2 focus:ring-emerald-900 rounded border border-gray-600 focus:border-emerald-500 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                      </div>
+                      <div class="relative mb-4">
+                          <label for="password" class="leading-7 text-sm text-gray-400">Senha</label>
+                          <input type="password" id="password" [(ngModel)]="loginObj.Password" name="Password" required class="w-full bg-gray-600 bg-opacity-20 focus:bg-transparent focus:ring-2 focus:ring-emerald-900 rounded border border-gray-600 focus:border-emerald-500 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                      </div>
+                      <button class="bg-gradient-btn bg-clip-border text-white px-4 py-2 rounded text-lg" (click)="login()">LOGIN</button>
+                      <p class="text-xs mt-3 text-center">Ainda não tem uma conta? <a href="#" class="text-emerald-500" (click)="IsLoginView=false">Registre AQUI</a></p>
+                  </div>
+              </div>
+          </form>
+          } @else {
+          <form action="">
+              <div class="flex flex-col items-center">
+                  <div class="text-center mb-5">
+                      <h1 class="title-font font-medium text-3xl md:text-4xl bg-gradient-to-tr from-teal-400 to-orange-400 bg-clip-text text-fill-transparent">Bem Vindo ao Seu Monitor de Saúde</h1>
+                      <p class="leading-relaxed mt-4 md:mb-5">Para continuar seu registro, preencha as informações abaixo.</p>
+                  </div>
+                  <div class="bg-gray-800 bg-opacity-50 rounded-lg p-8 flex flex-col w-full">
+                      <h2 class="text-lg font-medium title-font mb-5 text-orange-300">SIGN UP</h2>
+                      <div class="relative mb-4">
+                          <label for="name" class="leading-7 text-sm text-gray-400">Usuário</label>
+                          <input type="text" id="name" [(ngModel)]="loginObj.userName" name="name" required class="w-full bg-gray-600 bg-opacity-20 focus:bg-transparent focus:ring-2 focus:ring-emerald-900 rounded border border-gray-600 focus:border-emerald-500 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                      </div>
+                      <div class="relative mb-4">
+                          <label for="email" class="leading-7 text-sm text-gray-400">Email</label>
+                          <input type="email" id="email" [(ngModel)]="loginObj.emailId" name="emailId" required class="w-full bg-gray-600 bg-opacity-20 focus:bg-transparent focus:ring-2 focus:ring-emerald-900 rounded border border-gray-600 focus:border-emerald-500 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                      </div>
+                      <div class="relative mb-4">
+                          <label for="password" class="leading-7 text-sm text-gray-400">Senha</label>
+                          <input type="password" id="password" [(ngModel)]="loginObj.password" name="password" required class="w-full bg-gray-600 bg-opacity-20 focus:bg-transparent focus:ring-2 focus:ring-emerald-900 rounded border border-gray-600 focus:border-emerald-500 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out">
+                      </div>
+                      <button class="bg-gradient-btn bg-clip-border text-white px-4 py-2 rounded text-lg" (click)="signup()">Sign Up</button>
+                      <p class="text-xs mt-3 text-center">Já tem uma conta? <a href="#" class="text-emerald-500" (click)="IsLoginView=true">Login AQUI</a></p>
+                  </div>
+              </div>
+          </form>
+          }
+      </div>
+  </section>
+  <section class="py-4 md:w-1/2 md:px-8 flex flex-col items-center justify-center rouded bg-gradient-to-tr from-teal-400 to-orange-400 bg-clip-text text-fill-transparent">
+      <div class="text-center leading-7 font-medium title-font text-3xl py-1 px-3">
+          <h1>Conecte-se com Sua Saúde, a Qualquer Hora, em Qualquer Lugar</h1>
+      </div>
+      <div class="flex flex-col space-y-4">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 100" width="300" height="150">
+            <!-- Fundo com a cor gray-900 -->
+            <rect width="100%" height="100%" fill="none" />
+            
+            <!-- Linha do batimento cardíaco 1 -->
+            <path id="heartbeat1" d="M 0 50 H 20 L 40 30 L 50 70 L 60 50 H 80 L 90 30 L 100 50 H 120 L 140 70 L 160 50 H 180" 
+                  stroke="#14b8a6" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round" />
+            
+            <!-- Animação -->
+            <animate
+              xlink:href="#heartbeat1"
+              attributeName="stroke-dasharray"
+              from="0, 300"
+              to="300, 0"
+              dur="5s"
+              repeatCount="indefinite" />
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 100" width="300" height="150">
+            <!-- Fundo com a cor gray-900 -->
+            <rect width="100%" height="100%" fill="none" />
+            
+            <!-- Linha do batimento cardíaco 2 -->
+            <path id="heartbeat2" d="M 0 50 H 15 L 30 40 L 45 60 L 60 40 H 75 L 90 20 L 105 40 H 120 L 135 60 L 150 40 H 165 L 180 50" 
+            stroke="#10b981" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round" />
+            
+            <!-- Animação -->
+            <animate
+              xlink:href="#heartbeat2"
+              attributeName="stroke-dasharray"
+              from="0, 300"
+              to="300, 0"
+              dur="5s"
+              repeatCount="indefinite" />
+          </svg>
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 100" width="300" height="150">
+            <!-- Fundo com a cor gray-900 -->
+            <rect width="100%" height="100%" fill="none" />
+                    
+            <!-- Linha do batimento cardíaco -->
+            <path id="heartbeat3" d="M 0 50 H 25 L 50 20 L 75 60 L 100 40 H 125 L 150 20 L 175 60 H 180" 
+            stroke="#fb923c" stroke-width="4" fill="none" stroke-linejoin="round" stroke-linecap="round" />
+                      
+            <!-- Animação -->
+            <animate
+              xlink:href="#heartbeat3"
+              attributeName="stroke-dasharray"
+              from="0, 300"
+              to="300,0"
+              dur="5s"
+              repeatCount="indefinite" />
+          </svg>  
+        </div>
+    </section>
+</main>

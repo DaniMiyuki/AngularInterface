@@ -1,1 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+    .bg-clip-border {
+        background-clip: border-box;
+      }
+
+    .bg-clip-text {
+      background-clip: text;
+      -webkit-background-clip: text;
+    }
+
+    .bg-gradient-btn {
+        background: linear-gradient(to right, #18AFAE, #FFA050); /* Personalize as cores aqui */
+        color: white;
+    }
+  
+    .text-fill-transparent {
+      -webkit-text-fill-color: transparent;
+    }
+      
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #111827;
+}
