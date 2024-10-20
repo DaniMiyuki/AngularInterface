@@ -1,1 +1,41 @@
-<p>profile works!</p>
+<!-- Profile -->
+<div class="ml-4 text-gray-500 border-2 border-transparent border-b-orange-400">
+  <h2 class="text-lg">Info</h2>
+</div>
+
+<div class="flex m-4 w-full ms:w-full">
+  <!-- Card de informações do usuário -->
+  <div class=" bg-gray-800 text-gray-500 p-6 rounded-lg hover:shadow-lg hover:shadow-teal-600">
+    <h2 class=" text-orange-400 text-2xl font-bold ">Perfil do Usuário</h2>
+    <p>Nome: {{ user.name }}</p>
+    <p>Email: {{ user.email }}</p>
+    <p>Idade: {{ user.idade }} anos</p>
+    <p>Altura: {{ user.altura }} m</p>
+    <p>Peso: {{ user.peso }} kg</p>
+  </div>
+  
+  <!-- Formulário de edição de perfil -->
+  <div class="bg-gray-800 text-gray-500 p-6 rounded-lg hover:shadow-lg hover:shadow-teal-600 w-full mx-4">
+    <p class="mb-4 text-4xl text-teal-500">Editar</p>
+    <form (ngSubmit)="updateUser()">
+      <label class="text-orange-400" for="name">Nome</label>
+      <input [(ngModel)]="user.name" name="name" class="my-4 w-full bg-gray-600 bg-opacity-20 focus:bg-transparent focus:ring-2 focus:ring-emerald-900 rounded border border-gray-600 focus:border-emerald-500 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" type="text" >
+
+      <label class="text-orange-400" for="email">Email</label>
+      <input [(ngModel)]="user.email" name="email" class="my-4 w-full bg-gray-600 bg-opacity-20 focus:bg-transparent focus:ring-2 focus:ring-emerald-900 rounded border border-gray-600 focus:border-emerald-500 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" type="email" >
+
+      <label class="text-orange-400" for="idade">Idade</label>
+      <input [(ngModel)]="user.idade" name="idade" class="my-4 w-full bg-gray-600 bg-opacity-20 focus:bg-transparent focus:ring-2 focus:ring-emerald-900 rounded border border-gray-600 focus:border-emerald-500 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" type="number" >
+
+      <label class="text-orange-400" for="altura">Altura</label>
+      <input [(ngModel)]="user.altura" name="altura" class="my-4 w-full bg-gray-600 bg-opacity-20 focus:bg-transparent focus:ring-2 focus:ring-emerald-900 rounded border border-gray-600 focus:border-emerald-500 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" type="number" >
+
+      <label class="text-orange-400" for="peso">Peso</label>
+      <input [(ngModel)]="user.peso" name="peso" class="my-4 w-full bg-gray-600 bg-opacity-20 focus:bg-transparent focus:ring-2 focus:ring-emerald-900 rounded border border-gray-600 focus:border-emerald-500 text-base outline-none text-gray-100 py-1 px-3 leading-8 transition-colors duration-200 ease-in-out" type="number" >
+
+      <button type="submit" class="mt-4 px-4 py-2 bg-teal-500 text-white rounded hover:bg-teal-600 transition duration-300">
+        Salvar Alterações
+      </button>
+    </form>
+  </div>
+</div>

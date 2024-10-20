@@ -1,2 +1,70 @@
-<p>Meu layout</p>
-<router-outlet></router-outlet>
+<div class="flex font-sans leading-normal tracking-normal min-h-screen">
+    <!-- Sidebar -->
+    <div class="w-auto text-slate-400 sm:w-auto flex-shrink-0">
+        <div class="p-4">
+          <h1 class="py-5 text-3xl font-bold mb-4 text-teal-500">
+            <span class="hidden md:inline">Health Monitor</span>
+            <i class="md:hidden fa-solid fa-bars"></i>
+          </h1>
+          <nav>
+            <ul>
+              <li class="mb-4 pt-4">
+                <a routerLink="/dashboard" routerLinkActive="activebutton" ariaCurrentWhenActive="page"  class="text-lg hover:text-teal-500 flex items-center">
+                  <i class="pr-3 fa-solid fa-square-poll-vertical"></i>
+                  <span class="hidden md:inline">Dashboard</span>
+                </a>
+              </li>
+              <li class="mb-4 pt-4">
+                <a href="#" routerLinkActive="activebutton" ariaCurrentWhenActive="page" class="text-lg hover:text-teal-500 flex items-center">
+                  <i class="pr-3 fa-solid fa-file"></i>
+                  <span class="hidden md:inline">Relatórios</span>
+                </a>
+              </li>
+              <li class="mb-4 pt-4">
+                <a href="#" routerLinkActive="activebutton" ariaCurrentWhenActive="page" class="text-lg hover:text-teal-500 flex items-center">
+                  <i class="pr-3 fa-solid fa-layer-group"></i>
+                  <span class="hidden md:inline">Histórico</span>
+                </a>
+              </li>
+              <li class="mb-4 pt-4">
+                <a routerLink="/profile" routerLinkActive="activebutton" ariaCurrentWhenActive="page" class="text-lg hover:text-teal-500 flex items-center">
+                  <i class="pr-3 fa-solid fa-gear"></i>
+                  <span class="hidden md:inline">Configurações</span>
+                </a>
+              </li>
+              <li class="mb-4 pt-4">
+                <button (click)="logout()" class="text-lg hover:text-teal-500 flex items-center">
+                  <i class="pr-3 fa-solid fa-right-from-bracket"></i>
+                  <span class="hidden md:inline">Logout</span>
+                </button>
+              </li>
+            </ul>
+          </nav>
+        </div>
+    </div>
+
+    <!-- Main Content -->
+    <div class="w-full sm:w-full">
+
+        <!-- Header -->
+        <div class="p-4 flex justify-between">
+          <h2 class="pl-4 font-bold text-3xl md:text-4xl text-teal-500">Dashboard</h2>
+          <div class="flex items-center space-x-4 flex-shrink-0">
+             <button class="cursor-pointer bg-gradient-to-tr from-teal-500 to-orange-400 text-slate-200 px-4 py-2 rounded hover:scale-105 transition duration-300"><i class="pr-3 fa-solid fa-bell "></i> Notificações</button>
+             <img src="https://via.placeholder.com/40" class="rounded-full" alt="User Avatar">
+          </div>
+        </div>
+
+        <!-- Paginas internas do LAYOUT -->
+        <div>
+            <router-outlet />
+        </div>
+    </div>
+  </div>
+
+  <!-- Footer -->
+  <footer class="flex justify-center">
+      <div class="text-center text-gray-600 p-4">
+          &copy; 2024 <span class="text-green-600">Health Monitor</span>. Todos os direitos reservados.
+      </div>      
+  </footer>

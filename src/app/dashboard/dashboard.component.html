@@ -1,1 +1,13 @@
-<p>dashboard works!</p>
+<div class="p-8 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+  <div *ngFor="let metric of metrics" class="bg-gray-800 border-2 border-transparent 
+    p-6 rounded-lg shadow-lg hover:scale-105 transition duration-300 flex items-center" 
+    [ngClass]="metric.hoverShadow">
+    <div class="w-16 h-16 flex items-center justify-center rounded-full" [ngClass]="metric.bgColor">
+      {{ metric.icon }}
+    </div>
+    <div class="ml-4">
+      <h3 class="text-xl font-bold" [ngClass]="metric.textColor">{{ metric.title }}</h3>
+      <p class="text-gray-500">{{ metric.value }}</p>
+    </div>
+  </div>
+</div>

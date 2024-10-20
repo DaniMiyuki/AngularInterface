@@ -7,7 +7,7 @@ import { AuthGuard } from './core/guards/auth.guard';
 
 export const routes: Routes = [
     {
-        path: '', redirectTo:'login', pathMatch: 'full'
+        path: '', redirectTo:'layout', pathMatch: 'full' // provisorio para nao precisar logar
     },
     { 
         path: 'login', component: LoginComponent
@@ -26,6 +26,6 @@ export const routes: Routes = [
             }
         ]
     },
-    { path: '**', redirectTo: '/login' }
+    { path: '**', redirectTo: '/login' } // redireciona se a rota nao for encontrada
       
 ];

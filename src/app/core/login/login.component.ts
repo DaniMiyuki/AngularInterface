@@ -8,41 +8,45 @@ import { FormsModule } from '@angular/forms';
   standalone: true,
   imports: [FormsModule],
   templateUrl: './login.component.html',
-  styleUrl: './login.component.scss'
+  styleUrls: ['./login.component.scss']
 })
 export class LoginComponent {
 
-  IsLoginView: boolean = true;
+  IsLoginView: boolean = true; // Altera entre login e signup view
   
   loginObj: any = {
     userName: '',
     emailId: '',
     password:''
-  }
+  };
 
   constructor(private authService: AuthService, private router: Router) {}
 
   login() {
     const { userName, password } = this.loginObj;
-    if (this.authService.login(userName, password)) {
-      // Redireciona para o dashboard após login bem-sucedido
-      this.router.navigate(['/dashboard']);
-    } else {
-      // Exibe mensagem de erro (implemente conforme necessário)
-      alert('Credenciais inválidas!');
-    }
+    this.authService.login(userName, password).then(isAuthenticated => {
+      
+      if (isAuthenticated) {
+        // Redireciona para o dashboard após login bem-sucedido
+        this.router.navigate(['/dashboard']);
+      } else {
+        // Exibe mensagem de erro
+        alert('Credenciais inválidas!');
+      }
+    })
   }
 
   signup() {
-    const signedUp = this.authService.signup(this.loginObj.userName, this.loginObj.password, this.loginObj.emailId);
-    if (signedUp) {
-      alert('Cadastro realizado com sucesso! Agora você pode fazer login.');
-      this.IsLoginView = true; // Volta para a tela de login
-    } else {
-      alert('Usuário já existe');
-    }
+    const { userName, password, emailId } = this.loginObj;
+    this.authService.signup(userName, password, emailId).then(signedUp => {
+
+      if (signedUp) {
+        alert('Cadastro realizado com sucesso! Agora você pode fazer login.');
+        this.IsLoginView = true; // Volta para a tela de login
+      } else {
+        alert('Usuário já existe');
+      }
+    });
   }
-
-
   
 }
