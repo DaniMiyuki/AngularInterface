@@ -19,6 +19,7 @@
           "options": {
             "outputPath": "dist/miyuki-app",
             "baseHref": "/<AngularInterface>/",
+            "main": "src/main.ts",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
